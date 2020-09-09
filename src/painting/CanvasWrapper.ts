@@ -78,6 +78,11 @@ export default class CanvasWrapper {
     this.ctx.fill();
   }
 
+  drawImage(image: CanvasImageSource, pos: Vector): void {
+    const canvasPos = this.screenToCanvas(pos);
+    this.ctx.drawImage(image, canvasPos.x, canvasPos.y);
+  }
+
   private screenToCanvas(pos: Vector): Vector {
     var rect = this._canvasElement.getBoundingClientRect();
     return new Vector(pos.x - rect.left, pos.y - rect.top).multiplyScalar(

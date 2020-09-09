@@ -5,6 +5,7 @@ import PathBrush from "../brushes/PathBrush";
 import BrushButton from "./BrushButton";
 import CappedPathBrush from "../brushes/CappedPathBrush";
 import DotBrush from "../brushes/DotBrush";
+import StampBrush from "../brushes/StampBrush";
 
 const Buttons = styled.div`
   display: flex;
@@ -28,6 +29,10 @@ export default function BrushButtons(props: Props) {
       ></BrushButton>
       <BrushButton
         brush={new DotBrush()}
+        setBrush={props.setBrush}
+      ></BrushButton>
+      <BrushButton
+        brush={new StampBrush()}
         setBrush={props.setBrush}
       ></BrushButton>
     </Buttons>

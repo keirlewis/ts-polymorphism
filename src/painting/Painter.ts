@@ -14,22 +14,23 @@ export default class Painter {
   private brush: Brush | null = null;
 
   constructor(canvas: CanvasWrapper) {
-    interact(canvas.canvasElement).draggable({
-      onstart: (event: InteractEvent) => {
-        this.brush?.onDragStart(canvas, this.eventToPos(event));
-      },
-      onmove: (event: InteractEvent) => {
-        this.brush?.onDragMove(
-          canvas,
-          this.eventToPos(event),
-          this.eventToDelta(event)
-        );
-      },
-      onend: (event: InteractEvent) => {
-        this.brush?.onDragEnd(canvas, this.eventToPos(event));
-      },
-      cursorChecker: () => "crosshair",
-    });
+    interact(canvas.canvasElement)
+      .on("tap", (event: InteractEvent) =>
+        this.brush?.onTap(canvas, this.eventToPos(event))
+      )
+      .draggable({
+        onstart: (event: InteractEvent) =>
+          this.brush?.onDragStart(canvas, this.eventToPos(event)),
+        onmove: (event: InteractEvent) =>
+          this.brush?.onDragMove(
+            canvas,
+            this.eventToPos(event),
+            this.eventToDelta(event)
+          ),
+        onend: (event: InteractEvent) =>
+          this.brush?.onDragEnd(canvas, this.eventToPos(event)),
+        cursorChecker: () => "crosshair",
+      });
   }
 
   setBrush(b: Brush) {
