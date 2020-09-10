@@ -80,7 +80,6 @@ export default class CanvasWrapper {
 
   drawImage(image: HTMLImageElement, pos: Vector): void {
     const canvasPos = this.screenToCanvas(pos);
-    const w = image.width;
     this.ctx.drawImage(
       image,
       canvasPos.x - image.width / 2,
