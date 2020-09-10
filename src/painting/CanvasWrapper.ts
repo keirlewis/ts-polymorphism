@@ -78,9 +78,14 @@ export default class CanvasWrapper {
     this.ctx.fill();
   }
 
-  drawImage(image: CanvasImageSource, pos: Vector): void {
+  drawImage(image: HTMLImageElement, pos: Vector): void {
     const canvasPos = this.screenToCanvas(pos);
-    this.ctx.drawImage(image, canvasPos.x, canvasPos.y);
+    const w = image.width;
+    this.ctx.drawImage(
+      image,
+      canvasPos.x - image.width / 2,
+      canvasPos.y - image.height / 2
+    );
   }
 
   private screenToCanvas(pos: Vector): Vector {

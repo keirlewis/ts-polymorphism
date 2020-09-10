@@ -2,6 +2,7 @@ import Brush from "../brushes/Brush";
 import CanvasWrapper from "./CanvasWrapper";
 import interact from "interactjs";
 import Vector from "./Vector";
+import PathBrush from "../brushes/PathBrush";
 
 type InteractEvent = {
   clientX: number;
@@ -13,7 +14,8 @@ type InteractEvent = {
 export default class Painter {
   private brush: Brush | null = null;
 
-  constructor(canvas: CanvasWrapper) {
+  constructor(canvas: CanvasWrapper, initialBrush?: Brush) {
+    this.brush = initialBrush || new PathBrush();
     interact(canvas.canvasElement)
       .on("tap", (event: InteractEvent) =>
         this.brush?.onTap(canvas, this.eventToPos(event))

@@ -5,10 +5,18 @@ import logo from "./resources/logo.webp";
 
 export default class StampBrush extends Brush {
   public name = "Stamp Brush";
+  private img: HTMLImageElement | undefined;
+
+  constructor() {
+    super();
+    const image = new Image();
+    image.onload = () => (this.img = image);
+    image.src = logo;
+  }
 
   onTap(canvas: CanvasWrapper, pos: Vector): void {
-    const image = new Image();
-    image.onload = () => canvas.drawImage(image, pos); // Draw when image has loaded
-    image.src = logo;
+    if (this.img) {
+      canvas.drawImage(this.img, pos); // Draw when image has loaded
+    }
   }
 }
