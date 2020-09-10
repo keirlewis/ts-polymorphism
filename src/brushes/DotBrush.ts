@@ -21,4 +21,8 @@ export default class DotBrush extends Brush {
   onDragEnd(canvas: CanvasWrapper, _: Vector) {
     this.currentLine = [];
   }
+
+  onTap(canvas: CanvasWrapper, pos: Vector): void {
+    canvas.fillCircle(pos, 30, colours.red);
+  }
 }
