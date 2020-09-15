@@ -18,7 +18,7 @@ interface Props {
   id: string;
 }
 
-export default function Canvas(props: Props) {
+export function Canvas(props: Props) {
   return (
     <CanvasContainer>
       <StyledCanvas id={props.id} />

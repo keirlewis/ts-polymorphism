@@ -1,6 +1,6 @@
 import * as log from "loglevel";
 
-export default class Vector {
+export class Vector {
   constructor(public x: number, public y: number) {}
 
   static zeroVector(): Vector {
@@ -80,7 +80,7 @@ export default class Vector {
 
   divide(v: Vector): Vector {
     if (v.x === 0 || v.y === 0) {
-      log.warn("Division by zero");
+      log.error("Division by zero");
       return this;
     }
 

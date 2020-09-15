@@ -1,7 +1,7 @@
-import Vector from "./Vector";
-import colours from "./colours";
+import { Vector } from "./Vector";
+import { colours } from "./colours";
 
-export default class CanvasWrapper {
+export class CanvasWrapper {
   private _canvasElement: HTMLCanvasElement;
   private ctx: CanvasRenderingContext2D;
   private size: Vector = Vector.zeroVector();

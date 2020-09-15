@@ -1,9 +1,9 @@
-import Brush from "./Brush";
-import Vector from "../painting/Vector";
-import CanvasWrapper from "../painting/CanvasWrapper";
+import { Brush } from "./Brush";
+import { Vector } from "../painting/Vector";
+import { CanvasWrapper } from "../painting/CanvasWrapper";
 import logo from "./resources/logo.webp";
 
-export default class StampBrush extends Brush {
+export class StampBrush extends Brush {
   public name = "Stamp Brush";
   private img: HTMLImageElement | undefined;
 

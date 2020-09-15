@@ -1,36 +1,37 @@
-import Brush from "../brushes/Brush";
-import CanvasWrapper from "./CanvasWrapper";
 import interact from "interactjs";
-import Vector from "./Vector";
-import PathBrush from "../brushes/PathBrush";
+import { Brush } from "../brushes/Brush";
+import { CanvasWrapper } from "./CanvasWrapper";
+import { Vector } from "./Vector";
+import { PathBrush } from "../brushes/PathBrush";
 
-type InteractEvent = {
+export type InteractEvent = {
   clientX: number;
   clientY: number;
   dx: number;
   dy: number;
 };
 
-export default class Painter {
-  private brush: Brush | null = null;
+export class Painter {
+  private brush: Brush;
 
   constructor(canvas: CanvasWrapper, initialBrush?: Brush) {
     this.brush = initialBrush || new PathBrush();
+
     interact(canvas.canvasElement)
       .on("tap", (event: InteractEvent) =>
-        this.brush?.onTap(canvas, this.eventToPos(event))
+        this.brush.onTap(canvas, this.eventToPos(event))
       )
       .draggable({
         onstart: (event: InteractEvent) =>
-          this.brush?.onDragStart(canvas, this.eventToPos(event)),
+          this.brush.onDragStart(canvas, this.eventToPos(event)),
         onmove: (event: InteractEvent) =>
-          this.brush?.onDragMove(
+          this.brush.onDragMove(
             canvas,
             this.eventToPos(event),
             this.eventToDelta(event)
           ),
         onend: (event: InteractEvent) =>
-          this.brush?.onDragEnd(canvas, this.eventToPos(event)),
+          this.brush.onDragEnd(canvas, this.eventToPos(event)),
         cursorChecker: () => "crosshair",
       });
   }

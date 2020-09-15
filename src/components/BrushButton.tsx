@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Brush from "../brushes/Brush";
+import { Brush } from "../brushes/Brush";
 
 const StyledButton = styled.button`
   display: inline-block;
@@ -39,7 +39,7 @@ interface Props {
   setBrush: (brush: Brush) => void;
 }
 
-export default function BrushButton(props: Props) {
+export function BrushButton(props: Props) {
   const name = props.brush.name;
   return (
     <StyledButton onClick={() => props.setBrush(props.brush)}>

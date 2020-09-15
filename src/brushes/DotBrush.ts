@@ -1,9 +1,9 @@
-import Brush from "./Brush";
-import Vector from "../painting/Vector";
-import CanvasWrapper from "../painting/CanvasWrapper";
-import colours from "../painting/colours";
+import { Brush } from "./Brush";
+import { Vector } from "../painting/Vector";
+import { CanvasWrapper } from "../painting/CanvasWrapper";
+import { colours } from "../painting/colours";
 
-export default class DotBrush extends Brush {
+export class DotBrush extends Brush {
   public name = "Dot Brush";
   protected currentLine: Vector[] = [];
 

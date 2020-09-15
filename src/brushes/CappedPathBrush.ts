@@ -1,9 +1,9 @@
-import Vector from "../painting/Vector";
-import CanvasWrapper from "../painting/CanvasWrapper";
-import PathBrush from "./PathBrush";
-import colours from "../painting/colours";
+import { Vector } from "../painting/Vector";
+import { CanvasWrapper } from "../painting/CanvasWrapper";
+import { colours } from "../painting/colours";
+import { PathBrush } from "./PathBrush";
 
-export default class CappedPathBrush extends PathBrush {
+export class CappedPathBrush extends PathBrush {
   public name = "Capped Path Brush";
 
   onDragStart(canvas: CanvasWrapper, pos: Vector) {

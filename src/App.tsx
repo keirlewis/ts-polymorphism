@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Canvas from "./components/Canvas";
-import Painter from "./painting/Painter";
-import CanvasWrapper from "./painting/CanvasWrapper";
-import Brush from "./brushes/Brush";
-import BrushButtons from "./components/BrushButtons";
+import { Canvas } from "./components/Canvas";
+import { Painter } from "./painting/Painter";
+import { CanvasWrapper } from "./painting/CanvasWrapper";
+import { Brush } from "./brushes/Brush";
+import { BrushButtons } from "./components/BrushButtons";
 
 const AppContainer = styled.div`
   background-color: rgb(41, 44, 51);
@@ -15,7 +15,7 @@ const AppContainer = styled.div`
   flex-direction: column;
 `;
 
-function App() {
+export function App() {
   const canvasID = "paint-canvas";
 
   const [painter, setPainter] = useState<Painter>();
@@ -31,5 +31,3 @@ function App() {
     </AppContainer>
   );
 }
-
-export default App;
