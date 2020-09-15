@@ -11,10 +11,10 @@ export class DotBrush extends Brush {
     this.currentLine.push(pos);
   }
 
-  onDragMove(canvas: CanvasWrapper, newPos: Vector, _: Vector) {
-    if (this.currentLine[this.currentLine.length - 1].distanceTo(newPos) > 30) {
-      this.currentLine.push(newPos);
-      canvas.fillCircle(newPos, 20, colours.red);
+  onDragMove(canvas: CanvasWrapper, pos: Vector, _: Vector) {
+    if (this.currentLine[this.currentLine.length - 1].distanceTo(pos) > 30) {
+      this.currentLine.push(pos);
+      canvas.fillCircle(pos, 20, colours.red);
     }
   }
 

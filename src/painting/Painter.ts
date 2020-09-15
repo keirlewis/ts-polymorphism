@@ -19,19 +19,19 @@ export class Painter {
 
     interact(canvas.canvasElement)
       .on("tap", (event: InteractEvent) =>
-        this.brush.onTap(canvas, this.eventToPos(event))
+        this.brush.onTap(canvas, this.eventToPositionVector(event))
       )
       .draggable({
         onstart: (event: InteractEvent) =>
-          this.brush.onDragStart(canvas, this.eventToPos(event)),
+          this.brush.onDragStart(canvas, this.eventToPositionVector(event)),
         onmove: (event: InteractEvent) =>
           this.brush.onDragMove(
             canvas,
-            this.eventToPos(event),
-            this.eventToDelta(event)
+            this.eventToPositionVector(event),
+            this.eventToDeltaVector(event)
           ),
         onend: (event: InteractEvent) =>
-          this.brush.onDragEnd(canvas, this.eventToPos(event)),
+          this.brush.onDragEnd(canvas, this.eventToPositionVector(event)),
         cursorChecker: () => "crosshair",
       });
   }
@@ -40,11 +40,11 @@ export class Painter {
     this.brush = b;
   }
 
-  private eventToPos(event: InteractEvent): Vector {
+  private eventToPositionVector(event: InteractEvent): Vector {
     return new Vector(event.clientX, event.clientY);
   }
 
-  private eventToDelta(event: InteractEvent): Vector {
+  private eventToDeltaVector(event: InteractEvent): Vector {
     return new Vector(event.dx, event.dy);
   }
 }

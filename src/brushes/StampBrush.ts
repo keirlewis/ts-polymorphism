@@ -16,7 +16,7 @@ export class StampBrush extends Brush {
 
   onTap(canvas: CanvasWrapper, pos: Vector): void {
     if (this.img) {
-      canvas.drawImage(this.img, pos); // Draw when image has loaded
+      canvas.drawImage(this.img, pos); // Draw if image has loaded
     }
   }
 }

@@ -7,8 +7,8 @@ export class PathBrush extends Brush {
   public name = "Path Brush";
   protected currentLine: Vector[] = [];
 
-  onDragMove(canvas: CanvasWrapper, newPos: Vector, _: Vector) {
-    this.currentLine.push(newPos);
+  onDragMove(canvas: CanvasWrapper, pos: Vector, _: Vector) {
+    this.currentLine.push(pos);
     canvas.drawPath(this.currentLine, 15, colours.black);
   }
 
